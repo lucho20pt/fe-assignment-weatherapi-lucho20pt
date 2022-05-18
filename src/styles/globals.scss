@@ -1,0 +1,24 @@
+/* import bootstrap to set changes */
+@import "styles/custom.scss";
+
+// $body-bg: $white;
+// $body-color: $gray-900;
+// $font-family-sans-serif: "Poppins", sans-serif;
+// $font-family-base: $font-family-sans-serif;
+// $font-size-base: 1rem;
+
+@import "bootstrap";
+
+
+* {
+  box-sizing: border-box;
+}
+
+html{
+  min-height: 100%; // stick footer
+  margin-top: 56px;
+}
+
+ul,li,dl,dd,dt{
+  margin: 0; padding: 0; list-style: none;
+}
