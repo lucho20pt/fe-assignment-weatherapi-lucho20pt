@@ -3,7 +3,7 @@ import { useGetCityByCoordsQuery } from '../api/weatherApi'
 import Loading from 'components/ui/Loading'
 // import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import { Container, Row, Col } from 'react-bootstrap'
-// import Search from './Search'
+import Search from './Search'
 import useGeoLocation from 'hooks/useGeolocation'
 import 'assets/owfont-master/css/owfont-regular.css'
 import classes from 'styles/features/weather/weather.module.scss'
@@ -13,8 +13,8 @@ const Weather = () => {
   const location = useGeoLocation()
   // First City
   const [initialCity, setInitialCity] = useState({
-    lat: 39.7436,
-    lon: -8.8071
+    lat: 39.74362,
+    lon: -8.80705
   })
 
   // useEffect
@@ -45,7 +45,7 @@ const Weather = () => {
   } else if (isSuccess) {
     // console.log(city)
     content = (
-      <article className={`${classes.weather} p-5`}>
+      <article className={`${classes.weather} p-4`}>
         <Row>
           <Col className="mx-auto text-center">
             <div className={`${classes.icon}`}>
@@ -73,9 +73,11 @@ const Weather = () => {
 
   return (
     <Fragment>
-      {/* <Search /> */}
       <section className="">
-        <Container>{content}</Container>
+        <Container>
+          <Search />
+          {content}
+        </Container>
       </section>
     </Fragment>
   )
