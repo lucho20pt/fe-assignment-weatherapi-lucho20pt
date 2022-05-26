@@ -1,10 +1,12 @@
 import { Fragment, useState, useEffect } from 'react'
 import { useGetCityByCoordsQuery } from '../api/weatherApi'
 import Loading from 'components/ui/Loading'
-import { Container, Row, Col, Form, Button } from 'react-bootstrap'
+// import { Container, Row, Col, Form, Button } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 // import Search from './Search'
 import useGeoLocation from 'hooks/useGeolocation'
 import 'assets/owfont-master/css/owfont-regular.css'
+import classes from 'styles/features/weather/weather.module.scss'
 
 const Weather = () => {
   // Get Location
@@ -37,29 +39,32 @@ const Weather = () => {
   } = useGetCityByCoordsQuery(initialCity)
 
   // let content = <p>content</p>
-  let content = <h1>{city && city.name}</h1>
+  let content
   if (isLoading) {
     content = <Loading />
   } else if (isSuccess) {
     // console.log(city)
     content = (
-      <article>
+      <article className={`${classes.weather} p-5`}>
         <Row>
-          <Col className="weather | text-center">
-            <i className={`owf owf-${city.weather[0].id} owf-5x`}></i>
+          <Col className="mx-auto text-center">
+            <div className={`${classes.icon}`}>
+              <i className={`owf owf-${city.weather[0].id} owf-5x`}></i>
+            </div>
+            <div className={`${classes.name}`}>
+              <h1>{city.name}</h1>
+            </div>
+            <Row>
+              <Col className={`${classes.temp}`}>
+                <h2>
+                  {Math.round(city.main.temp)}
+                  <sup>ºC</sup>
+                </h2>
+              </Col>
+              <h3>{city.weather[0].main}</h3>
+            </Row>
           </Col>
         </Row>
-
-        <div className="name">
-          <h1>{city.name}</h1>
-        </div>
-        <div className="temp">
-          <h2>
-            {Math.round(city.main.temp)}
-            <sup>ºC</sup>
-          </h2>
-          <h3>{city.weather[0].main}</h3>
-        </div>
       </article>
     )
   } else if (isError) {
