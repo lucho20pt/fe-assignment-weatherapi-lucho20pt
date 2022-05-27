@@ -16,7 +16,7 @@ export const weatherApi = createApi({
     getCityByCoords7Days: builder.query({
       query: (city) =>
         // api.openweathermap.org/data/2.5/onecall?APPID=90670e234808f3e0060efb18c2a77546&lat=39.7436&lon=-8.8071&exclude=hourly,minutely&units=metric
-        `data/2.5/onecall?APPID=${process.env.REACT_APP_APPID}&q=${city}&exclude=hourly,minutely&units=metric`,
+        `data/2.5/onecall?APPID=${process.env.REACT_APP_APPID}&lat=${city.lat}&lon=${city.lon}&exclude=hourly,minutely&units=metric`,
       providesTags: ['City']
     })
     // getCity: builder.mutation({
