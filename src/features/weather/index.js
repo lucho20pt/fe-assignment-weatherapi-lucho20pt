@@ -1,7 +1,6 @@
 import { Fragment, useState, useEffect } from 'react'
-import { useGetCityByCoordsQuery } from '../api/weatherApi'
+import { useGetCityByCoordsQuery } from 'features/api/weatherApi'
 import useGeoLocation from 'hooks/useGeolocation'
-// import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import Search from './Search'
 import Forecast from './Forecast'
@@ -93,7 +92,7 @@ const Weather = () => {
               </Button>
             )}
           </div>
-          {showForecast && <Forecast name={city.name} />}
+          {showForecast && <Forecast coords={initialCity} />}
         </aside>
       </Fragment>
     ))
