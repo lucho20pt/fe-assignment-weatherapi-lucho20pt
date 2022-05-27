@@ -4,7 +4,7 @@
     background-color: rgba($color: $black, $alpha: .5);
     color: $white;
     .icon{
-        border: -1px solid red;       
+        color: $white;
     }
     
     .name{
@@ -18,7 +18,7 @@
             font-size: 5rem;
             line-height: 5rem;
             sup{
-                font-size: 1rem;
+                font-size: 1.5rem;
                 line-height: 4rem;
                 vertical-align: top;
             }
