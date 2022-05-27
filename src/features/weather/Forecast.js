@@ -3,7 +3,7 @@ import { useGetCityByCoords7DaysQuery } from 'features/api/weatherApi'
 import moment from 'moment'
 import Loading from 'components/ui/Loading'
 import 'assets/owfont-master/css/owfont-regular.css'
-import classes from 'styles/features/weather/weather.module.scss'
+import classes from 'styles/features/weather/forecast.module.scss'
 
 const Forecast = ({ coords }) => {
   //   console.log(coords)
@@ -23,17 +23,21 @@ const Forecast = ({ coords }) => {
     content = <Loading />
   } else if (isSuccess) {
     content = (
-      <ul className="d-flex justify-content-around">
+      <ul
+        className={`${classes.forecast} | d-flex justify-content-around | p-1 text-center`}
+      >
         {forecast.daily.slice(1).map((day, i) => (
-          <li className="px-1" key={i}>
+          <li className="d-flex flex-column | text-center p-1" key={i}>
             <p>
-              <strong>{Math.round(day.temp.day)}</strong>
-              <sup>ºc</sup>
+              <strong>{moment.unix(day.dt).format('dd')}</strong>
             </p>
             <div className={`${classes.icon}`}>
               <i className={`owf owf-${day.weather[0].id} owf-2x`}></i>
             </div>
-            <p>{moment.unix(day.dt).format('dd')}</p>
+            <p>
+              <strong>{Math.round(day.temp.day)}</strong>
+              <sup>º</sup>
+            </p>
           </li>
         ))}
       </ul>

@@ -1,0 +1,21 @@
+@import "styles/custom.scss";
+
+.forecast{
+    background-color: rgba($color: $black, $alpha: .1);
+    border-radius: 5px;
+    li{
+        
+        color: $black;
+        background-color: rgba($color: $white, $alpha: .2);
+        &:first-child{
+            border:0;
+        }
+        .icon{
+            font-size: .8rem;
+        }
+        p{
+            font-size: 1rem;
+        }
+    }
+}
+
