@@ -2,7 +2,7 @@ import { Fragment, useState, useEffect } from 'react'
 import { useGetCityByCoordsQuery } from '../api/weatherApi'
 import useGeoLocation from 'hooks/useGeolocation'
 // import { Container, Row, Col, Form, Button } from 'react-bootstrap'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Button } from 'react-bootstrap'
 import Search from './Search'
 import Forecast from './Forecast'
 import Loading from 'components/ui/Loading'
@@ -24,6 +24,11 @@ const Weather = () => {
   //     setSavedCitysList(citys)
   //   }
   // }, [])
+  const [showForecast, setShowForecast] = useState(false)
+
+  const showForecastHandler = () => {
+    setShowForecast(!showForecast)
+  }
 
   // weather api
   const {
@@ -54,7 +59,7 @@ const Weather = () => {
   } else if (isSuccess) {
     content = savedCitysList.map((city, i) => (
       <Fragment key={i}>
-        <article className={`${classes.weather} p-4`}>
+        <article className={`${classes.weather} p-3 mb-3`}>
           <Row>
             <Col className="mx-auto text-center">
               <div className={`${classes.icon}`}>
@@ -75,7 +80,21 @@ const Weather = () => {
             </Col>
           </Row>
         </article>
-        <Forecast name={city.name} />
+        <aside>
+          <div className="text-center">
+            {!showForecast && (
+              <Button
+                className="mx-auto"
+                size="lg"
+                variant="outline-primary"
+                onClick={showForecastHandler}
+              >
+                Forecast for 7 days
+              </Button>
+            )}
+          </div>
+          {showForecast && <Forecast name={city.name} />}
+        </aside>
       </Fragment>
     ))
   } else if (isError) {
