@@ -2,7 +2,7 @@ import { Form, Button } from 'react-bootstrap'
 
 const Search = () => {
   return (
-    <header className="my-4 d-flex justify-content-between">
+    <header className="my-3 d-flex justify-content-between">
       <Button className="" size="lg" variant="outline-primary">
         +
       </Button>
@@ -11,7 +11,7 @@ const Search = () => {
         size="lg"
         className="w-75" 
         type="text"
-        placeholder="Enter Location"
+        placeholder="Enter Location..."
         // value={newCity}
         // onChange={(event) => setNewCity(event.target.value)}
         // onKeyPress={searchLocation}

@@ -26,15 +26,20 @@ const Forecast = ({ coords }) => {
       <ul
         className={`${classes.forecast} | d-flex justify-content-around | p-1 text-center`}
       >
-        {forecast.daily.slice(1).map((day, i) => (
-          <li className="d-flex flex-column | text-center p-1" key={i}>
+        {forecast.daily.slice(1).map((day) => (
+          <li className="d-flex flex-column | text-center p-1" key={day.dt}>
             <p>
-              <strong>{moment.unix(day.dt).format('dd')}</strong>
+              <strong>{moment.unix(day.dt).format('dd')}</strong> <br />
+              <small>
+                <strong>{moment.unix(day.dt).format('D')}</strong>
+              </small>
             </p>
+
             <div className={`${classes.icon}`}>
               <i className={`owf owf-${day.weather[0].id} owf-2x`}></i>
             </div>
-            <p>
+
+            <p className="mb-0">
               <strong>{Math.round(day.temp.day)}</strong>
               <sup>º</sup>
             </p>

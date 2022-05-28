@@ -16,26 +16,22 @@
         z-index: -1;
     }
 
-    .icon{
+    .icon{        
         color: $white;
     }
     
-    .name{
-        h1{
-            font-size: 2rem;
-        }
+    .name {
+        font-size: 1.8rem;
     }
     
-    .temp{
-        h2{
-            font-size: 5rem;
-            line-height: 5rem;
-            sup{
-                font-size: 1.5rem;
-                line-height: 4rem;
-                vertical-align: top;
-            }
-        }
+    .temp{        
+        font-size: 5rem;
+        line-height: 5rem;
+        sup{
+            font-size: 1.5rem;
+            line-height: 4rem;
+            vertical-align: top;
+        }        
     }
     
 }
