@@ -1,5 +1,4 @@
 import { Fragment } from 'react'
-// import { Container, Row, Col, Button } from 'react-bootstrap'
 import { Container } from 'react-bootstrap'
 import Search from './Search'
 import WeatherLocal from 'features/weather/WeatherLocal'
@@ -9,7 +8,7 @@ const Weather = () => {
   return (
     <Fragment>
       <section className="">
-        <Container>
+        <Container style={{ maxWidth: '500px' }}>
           <Search />
           <WeatherLocal />
         </Container>
