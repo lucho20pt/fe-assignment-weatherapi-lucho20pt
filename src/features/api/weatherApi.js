@@ -8,15 +8,15 @@ export const weatherApi = createApi({
   tagTypes: ['City'],
   endpoints: (builder) => ({
     getCityByCoords: builder.query({
-      query: (city) =>
+      query: ({ lat, lon }) =>
         // api.openweathermap.org/data/2.5/weather?APPID=90670e234808f3e0060efb18c2a77546&lat=39.7436&lon=-8.8071&units=metric
-        `data/2.5/weather?APPID=${process.env.REACT_APP_APPID}&lat=${city.lat}&lon=${city.lon}&units=metric`,
+        `data/2.5/weather?APPID=${process.env.REACT_APP_APPID}&lat=${lat}&lon=${lon}&units=metric`,
       providesTags: ['City']
     }),
     getCityByCoords7Days: builder.query({
-      query: (city) =>
+      query: ({ lat, lon }) =>
         // api.openweathermap.org/data/2.5/onecall?APPID=90670e234808f3e0060efb18c2a77546&lat=39.7436&lon=-8.8071&exclude=hourly,minutely&units=metric
-        `data/2.5/onecall?APPID=${process.env.REACT_APP_APPID}&lat=${city.lat}&lon=${city.lon}&exclude=hourly,minutely&units=metric`,
+        `data/2.5/onecall?APPID=${process.env.REACT_APP_APPID}&lat=${lat}&lon=${lon}&exclude=hourly,minutely&units=metric`,
       providesTags: ['City']
     })
     // getCity: builder.mutation({

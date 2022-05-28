@@ -1,5 +1,6 @@
 import { Fragment, useState, useEffect } from 'react'
 import { useGetCityByCoordsQuery } from 'features/api/weatherApi'
+import moment from 'moment'
 import useGeoLocation from 'hooks/useGeolocation'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import Search from './Search'
@@ -56,42 +57,39 @@ const Weather = () => {
   if (isLoading) {
     content = <Loading />
   } else if (isSuccess) {
-    content = savedCitysList.map((city, i) => (
-      <Fragment key={i}>
-        <article className={`${classes.weather} p-3 mb-3`}>
+    content = savedCitysList.map((city) => (
+      <Fragment key={city.dt}>
+        <article className={`${classes.weather} p-2 mb-2`}>
           <Row>
             <Col className="mx-auto text-center">
               <div className={`${classes.icon}`}>
                 <i className={`owf owf-${city.weather[0].id} owf-5x`}></i>
               </div>
-              <div className={`${classes.name}`}>
-                <h1>{city.name}</h1>
-              </div>
-              <Row>
-                <Col className={`${classes.temp}`}>
-                  <h2>
-                    {Math.round(city.main.temp)}
-                    <sup>ºC</sup>
-                  </h2>
-                </Col>
-                <h3>{city.weather[0].main}</h3>
-              </Row>
+
+              <h1 className={`${classes.name}`}>{city.name}</h1>
+
+              <h2 className={`${classes.temp}`}>
+                {Math.round(city.main.temp)}
+                <sup>ºC</sup>
+              </h2>
+
+              <h3>{city.weather[0].main}</h3>
+
+              <small>{moment.unix(city.dt).format('dddd / D MMMM')}</small>
             </Col>
           </Row>
         </article>
-        <aside>
-          <div className="text-center">
-            {!showForecast && (
-              <Button
-                className="mx-auto"
-                size="lg"
-                variant="outline-primary"
-                onClick={showForecastHandler}
-              >
-                Forecast for 7 days
-              </Button>
-            )}
-          </div>
+        <aside className="text-center">
+          {!showForecast && (
+            <Button
+              className="mx-auto"
+              size="lg"
+              variant="outline-primary"
+              onClick={showForecastHandler}
+            >
+              Forecast for 7 days
+            </Button>
+          )}
           {showForecast && <Forecast coords={initialCity} />}
         </aside>
       </Fragment>
