@@ -1,0 +1,21 @@
+.slider {
+  .carousel-indicators {
+    top: -10px;
+    bottom: auto;
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next{
+    top: 190px;
+    bottom: auto;
+  }
+}
+
+
+  
+  // @include media-breakpoint-down(sm) {
+  //   .carousel-control-prev,
+  //   .carousel-control-next{
+  //     display:none
+  //   }
+  // }
