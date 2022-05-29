@@ -1,23 +1,16 @@
 import { Fragment, useState } from 'react'
+import { useSelector } from 'react-redux'
 import Carousel from 'react-bootstrap/Carousel'
 import 'styles/layout/slider.scss'
 
 const Slider = (props) => {
   //
-  // const carouselItem = carousel.map((item, i) => (
-  //   <Carousel.Item className="text-center pb-5" key={i}>
-  //     <h1>Carousel.Item</h1>
-  //     <Carousel.Caption>
-  //       <h2>Carousel.Caption</h2>
-  //     </Carousel.Caption>
-  //   </Carousel.Item>
-  // ))
-
   const [index, setIndex] = useState(0)
 
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex)
   }
+  const counter = useSelector((state) => state.weather.citys.length)
 
   return (
     <Fragment>
@@ -26,7 +19,7 @@ const Slider = (props) => {
         onSelect={handleSelect}
         interval={null}
         touch={true}
-        controls={true}
+        controls={counter === 1 ? false : true}
         variant="dark"
         className="slider pt-3 mt-2"
       >
