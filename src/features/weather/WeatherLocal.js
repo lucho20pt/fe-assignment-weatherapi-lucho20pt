@@ -57,7 +57,7 @@ const WeatherLocal = () => {
     content = <Loading />
   } else if (isSuccess) {
     content = savedCitysList.map((city) => (
-      <Fragment key={city.dt}>
+      <Fragment key={city.sys.id}>
         <article className={`${classes.weather} p-2 mb-2`}>
           <Row>
             <Col className="mx-auto text-center">
