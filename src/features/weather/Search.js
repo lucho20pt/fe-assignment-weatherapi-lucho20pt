@@ -1,19 +1,22 @@
 import { Fragment, useState } from 'react'
 import { useGetCityByNameMutation } from 'features/api/weatherApi'
+import { useDispatch } from 'react-redux'
 import { Form, Button } from 'react-bootstrap'
+import { weatherActions } from 'features/weather/weatherSlice'
 
 const Search = () => {
   //
   const [showSearch, setShowSearch] = useState(false)
   const [search, setSearch] = useState('')
   const [getCityByName] = useGetCityByNameMutation()
+  const dispatch = useDispatch()
   const [error, setError] = useState(false)
   const [success, setSuccess] = useState(false)
-  const timeout = 2500
+  const timeout = 1500
 
   // show search
   const showSearchHandler = () => {
-    console.log('show')
+    // console.log('show')
     setShowSearch(true)
   }
 
@@ -26,10 +29,10 @@ const Search = () => {
   // on submit
   const submitHandler = async (event) => {
     event.preventDefault()
-    console.log('submit ->', search)
+    const city = search.trimEnd()
 
     // not empty field
-    if (search === '') {
+    if (city === '') {
       onErrorHandler()
       return true
     }
@@ -37,12 +40,10 @@ const Search = () => {
     // request / result / verify
     try {
       // get response
-      const cityResponse = await getCityByName(search).unwrap()
-      console.log(cityResponse)
+      const cityResponse = await getCityByName(city).unwrap()
+      console.log('obj ->', cityResponse)
+      dispatch(weatherActions.addCity(cityResponse))
       onSuccessHandler()
-      
-
-      
     } catch (error) {
       // console.log('error -> ', error.status)
       // console.log('error -> ', error.data.message)
@@ -109,12 +110,12 @@ const Search = () => {
           </Fragment>
         )}
         {error && (
-          <div role="alert" className="alert alert-danger | position-absolute">
+          <div role="alert" className="alert alert-danger | position-absolute | py-0">
             City Not Found or Empty Field
           </div>
         )}
         {success && (
-          <div role="alert" className="alert alert-success | position-absolute">
+          <div role="alert" className="alert alert-success | position-absolute | py-0">
             {search === '' ? null : search} Added to favourites
           </div>
         )}
