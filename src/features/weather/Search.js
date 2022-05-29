@@ -17,7 +17,7 @@ const Search = () => {
   // show search
   const showSearchHandler = () => {
     // console.log('show')
-    setShowSearch(true)
+    setShowSearch(!showSearch)
   }
 
   // on change
@@ -72,51 +72,42 @@ const Search = () => {
   return (
     <Fragment>
       <header className="search | my-3 d-flex justify-content-between | position-relative">
-        {!showSearch && (
-          <Button
-            className=""
-            size="lg"
-            variant="outline-primary"
-            onClick={showSearchHandler}
-          >
-            Add City
-          </Button>
-        )}
+        <Button
+          className=""
+          size="lg"
+          variant="outline-primary"
+          onClick={showSearchHandler}
+        >
+          {!showSearch ? '+' : 'x'}
+        </Button>
 
         {showSearch && (
-          <Fragment>
-            <Form
-              className="w-100 d-flex justify-content-between"
-              onSubmit={submitHandler}
-            >
-              <Button
-                type="submit"
-                className=""
-                size="lg"
-                variant="outline-primary"
-              >
-                +
-              </Button>
-
-              <Form.Control
-                size="lg"
-                className="w-75"
-                type="text"
-                placeholder="Enter Location..."
-                value={search}
-                onChange={changeHandler}
-              />
-            </Form>
-          </Fragment>
+          <Form className="w-75" onSubmit={submitHandler}>
+            <Form.Control
+              size="lg"
+              className=""
+              type="text"
+              placeholder="Enter Location..."
+              value={search}
+              onChange={changeHandler}
+            />
+          </Form>
         )}
+
         {error && (
-          <div role="alert" className="alert alert-danger | position-absolute | py-0">
+          <div
+            role="alert"
+            className="alert alert-danger | position-absolute | py-0"
+          >
             City Not Found or Empty Field
           </div>
         )}
         {success && (
-          <div role="alert" className="alert alert-success | position-absolute | py-0">
-            {search === '' ? null : search} Added to favourites
+          <div
+            role="alert"
+            className="alert alert-success | position-absolute | py-0"
+          >
+            <strong>{search === '' ? null : search}</strong> added to favourites
           </div>
         )}
       </header>

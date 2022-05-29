@@ -10,7 +10,7 @@ const Slider = (props) => {
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex)
   }
-  const counter = useSelector((state) => state.weather.citys.length)
+  const counter = useSelector((state) => state.weather.citys.length + 1)
 
   return (
     <Fragment>
