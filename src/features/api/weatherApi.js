@@ -19,15 +19,9 @@ export const weatherApi = createApi({
         `data/2.5/onecall?APPID=${process.env.REACT_APP_APPID}&lat=${lat}&lon=${lon}&exclude=hourly,minutely&units=metric`,
       providesTags: ['City']
     }),
-    // getCityByName: builder.query({
-    //   query: (city) =>
-    //     // api.openweathermap.org/data/2.5/weather?APPID=90670e234808f3e0060efb18c2a77546&q=leiria&units=metric
-    //     `data/2.5/weather?APPID=${process.env.REACT_APP_APPID}q=${city}&units=metric`,
-    //   providesTags: ['City']
-    // }),
     getCityByName: builder.mutation({
       query: (city) => ({
-        // api.openweathermap.org/data/2.5/weather?APPID=90670e234808f3e0060efb18c2a77546&q=leiria&units=metric
+        // api.openweathermap.org/data/2.5/weather?APPID=90670e234808f3e0060efb18c2a77546&q=lisboa&units=metric
         url: `data/2.5/weather?APPID=${process.env.REACT_APP_APPID}&q=${city}&units=metric`,
         method: 'GET'
       })
@@ -38,6 +32,5 @@ export const weatherApi = createApi({
 export const {
   useGetCityByCoordsQuery,
   useGetCityByCoords7DaysQuery,
-  // useGetCityByNameQuery,
   useGetCityByNameMutation
 } = weatherApi
