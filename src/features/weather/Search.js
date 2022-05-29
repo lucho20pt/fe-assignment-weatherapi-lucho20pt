@@ -7,6 +7,9 @@ const Search = () => {
   const [showSearch, setShowSearch] = useState(false)
   const [search, setSearch] = useState('')
   const [getCityByName] = useGetCityByNameMutation()
+  const [error, setError] = useState(false)
+  const [success, setSuccess] = useState(false)
+  const timeout = 2500
 
   // show search
   const showSearchHandler = () => {
@@ -27,6 +30,7 @@ const Search = () => {
 
     // not empty field
     if (search === '') {
+      onErrorHandler()
       return true
     }
 
@@ -35,10 +39,33 @@ const Search = () => {
       // get response
       const cityResponse = await getCityByName(search).unwrap()
       console.log(cityResponse)
+      onSuccessHandler()
+      
+
+      
     } catch (error) {
-      console.log('error -> ', error.status)
-      console.log('error -> ', error.data.message)
+      // console.log('error -> ', error.status)
+      // console.log('error -> ', error.data.message)
+      onErrorHandler()
     }
+  }
+
+  // Error
+  const onErrorHandler = () => {
+    setError(true)
+    setTimeout(() => {
+      setError(false)
+    }, timeout)
+  }
+  // Success
+  const onSuccessHandler = () => {
+    setSuccess(true)
+    setTimeout(() => {
+      setSuccess(false)
+      // clear form
+      setSearch('')
+      setShowSearch(!showSearch)
+    }, timeout)
   }
 
   return (
@@ -80,6 +107,16 @@ const Search = () => {
               />
             </Form>
           </Fragment>
+        )}
+        {error && (
+          <div role="alert" className="alert alert-danger | position-absolute">
+            City Not Found or Empty Field
+          </div>
+        )}
+        {success && (
+          <div role="alert" className="alert alert-success | position-absolute">
+            {search === '' ? null : search} Added to favourites
+          </div>
         )}
       </header>
     </Fragment>

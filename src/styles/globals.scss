@@ -48,5 +48,12 @@ ul,li,dl,dd,dt{
   color: $text;
 }
 
-/* carousel */
-
+/* alert */
+.alert{
+  width: 100%;
+  top: auto;
+  left: 0;
+  right: 0;
+  bottom: -100px;
+  z-index: 10;
+}
