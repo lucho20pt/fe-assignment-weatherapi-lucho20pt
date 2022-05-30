@@ -6,6 +6,10 @@ import 'assets/owfont-master/css/owfont-regular.css'
 import classes from 'styles/features/weather/weather.module.scss'
 
 const City = ({ city }) => {
+  const coords = {
+    lat: city.coord.lat,
+    lon: city.coord.lon
+  }
   const [showForecast, setShowForecast] = useState(false)
 
   const showForecastHandler = () => {
@@ -37,7 +41,7 @@ const City = ({ city }) => {
           </Col>
         </Row>
       </article>
-      {/* <aside className="text-center">
+      <aside className="text-center">
         {!showForecast && (
           <Button
             className="mx-auto"
@@ -48,8 +52,8 @@ const City = ({ city }) => {
             Forecast for 7 days
           </Button>
         )}
-        {showForecast && <Forecast coords={initialCity} />}
-      </aside> */}
+        {showForecast && <Forecast coords={coords} />}
+      </aside>
     </Fragment>
   )
 }
