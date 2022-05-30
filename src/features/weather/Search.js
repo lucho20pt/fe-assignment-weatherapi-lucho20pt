@@ -97,7 +97,7 @@ const Search = () => {
             variant="outline-primary"
             onClick={() => setModalShow(true)}
           >
-            ::
+            &#x2764;
           </Button>
         )}
 
