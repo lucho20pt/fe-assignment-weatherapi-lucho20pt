@@ -1,5 +1,10 @@
 @import "styles/custom.scss";
 
 .header {
-    background: transparent;
+    background-color: rgba($color: $black, $alpha: .4);
+    color: $primary;
+    h1{
+        font-size: 1rem;
+    }
+    box-shadow: 0px 10px 13px -7px #000000;
 }

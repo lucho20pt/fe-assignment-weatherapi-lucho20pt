@@ -2,6 +2,7 @@
   .carousel-indicators {
     top: -10px;
     bottom: auto;
+    
   }
   
   .carousel-control-prev,
@@ -10,13 +11,5 @@
     top: 180px;
     bottom: auto;
   }
-}
-
-
   
-  // @include media-breakpoint-down(sm) {
-  //   .carousel-control-prev,
-  //   .carousel-control-next{
-  //     display:none
-  //   }
-  // }
+}
