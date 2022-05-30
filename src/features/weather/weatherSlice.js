@@ -45,7 +45,7 @@ const weatherSlice = createSlice({
       console.log('addCity')
       const newCity = action.payload
       const existingCity = state.citys.find(
-        (city) => city.sys.id === newCity.sys.id
+        (city) => city.id === newCity.id
       )
       state.changed = true
       if (!existingCity) {

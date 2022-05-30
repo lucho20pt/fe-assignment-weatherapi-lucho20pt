@@ -17,7 +17,7 @@ const Weather = () => {
           <Search />
           <Slider>
             {citys.map((city) => (
-              <Carousel.Item key={city.sys.id}>{city.name}</Carousel.Item>
+              <Carousel.Item key={city.id}>{city.name}</Carousel.Item>
             ))}
             <Carousel.Item>
               <WeatherLocal />

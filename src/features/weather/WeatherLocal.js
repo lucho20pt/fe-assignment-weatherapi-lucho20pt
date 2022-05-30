@@ -57,15 +57,20 @@ const WeatherLocal = () => {
     content = <Loading />
   } else if (isSuccess) {
     content = savedCitysList.map((city) => (
-      <Fragment key={city.sys.id}>
-        <article className={`${classes.weather} p-2 mb-2`}>
+      <Fragment key={city.id}>
+        <article
+          className={`${classes.weather} | p-2 mb-2 | position-relative`}
+        >
+          <span className={classes.currentLocation}>Current Location</span>
           <Row>
             <Col className="mx-auto text-center">
               <div className={`${classes.icon}`}>
                 <i className={`owf owf-${city.weather[0].id} owf-5x`}></i>
               </div>
 
-              <h1 className={`${classes.name}`}>{city.name}</h1>
+              <h1 className={`${classes.name}`}>
+                {city.name} / {city.sys.country}
+              </h1>
 
               <h2 className={`${classes.temp}`}>
                 {Math.round(city.main.temp)}
