@@ -78,12 +78,13 @@ const Search = () => {
   // component RETURN
   return (
     <Fragment>
-      <header className="search | my-3 d-flex justify-content-between | position-relative">
+      <header className="search | my-3 | d-flex justify-content-between | position-relative">
         {/* Toggle Search */}
         <Button
           className=""
           size="lg"
           variant="outline-primary"
+          title={!showSearch ? 'Add City' : 'Close'}
           onClick={showSearchHandler}
         >
           {!showSearch ? '+' : 'x'}
@@ -95,6 +96,7 @@ const Search = () => {
             className=""
             size="lg"
             variant="outline-primary"
+            title="Edit Favourite"
             onClick={() => setModalShow(true)}
           >
             &#x2764;
@@ -114,8 +116,8 @@ const Search = () => {
         {showSearch && (
           <Form className="w-75" onSubmit={submitHandler}>
             <Form.Control
+              title="Example - London, GB"
               size="lg"
-              className=""
               type="text"
               placeholder="Enter Location..."
               value={search}
@@ -124,7 +126,7 @@ const Search = () => {
             />
           </Form>
         )}
-        
+
         {/* Notification */}
         {error && (
           <div
