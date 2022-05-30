@@ -15,7 +15,7 @@ const MyModal = (props) => {
       </Modal.Header>
       <Modal.Body>{props.children}</Modal.Body>
       <Modal.Footer>
-        <Button variant="outline-primary" onClick={props.onHide}>
+        <Button size={'sm'} variant="outline-primary" onClick={props.onHide} title="Close">
           Close
         </Button>
       </Modal.Footer>
