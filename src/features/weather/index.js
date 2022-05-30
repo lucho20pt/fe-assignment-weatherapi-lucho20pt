@@ -5,6 +5,7 @@ import Slider from 'components/layout/Slider'
 import Carousel from 'react-bootstrap/Carousel'
 import Search from 'features/weather/Search'
 import WeatherLocal from 'features/weather/WeatherLocal'
+import City from 'features/weather/City'
 
 const Weather = () => {
   const citys = useSelector((state) => state.weather.citys)
@@ -17,7 +18,9 @@ const Weather = () => {
           <Search />
           <Slider>
             {citys.map((city) => (
-              <Carousel.Item key={city.id}>{city.name}</Carousel.Item>
+              <Carousel.Item key={city.id}>
+                <City city={city} />
+              </Carousel.Item>
             ))}
             <Carousel.Item>
               <WeatherLocal />
