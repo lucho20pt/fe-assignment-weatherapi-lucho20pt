@@ -91,6 +91,7 @@ const Search = () => {
               placeholder="Enter Location..."
               value={search}
               onChange={changeHandler}
+              autoFocus
             />
           </Form>
         )}

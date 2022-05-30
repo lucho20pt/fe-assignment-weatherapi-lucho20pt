@@ -36,16 +36,19 @@ ul,li,dl,dd,dt{
 }
 
 /* forms */
-.form-control:not(active){
-  background:transparent;
-  border-color: $primary;
-}
-.form-control::placeholder{
-  color: $primary;
-}
-
-.form-control:focus{
-  color: $text;
+.form-control{
+  color: $white;
+  &:not(active){
+    background:transparent;
+    border-color: $primary;
+  }
+  &::placeholder{
+    color: $primary;
+  }
+  &:focus{
+    color: $white;
+    background-color: rgba($color: $black, $alpha: .5);
+  }
 }
 
 /* alert */
@@ -57,4 +60,9 @@ ul,li,dl,dd,dt{
   bottom: -50px;
   z-index: 10;
   text-align: center;
+}
+
+/**/
+.btn-outline-primary{
+  background-color: rgba($color: $black, $alpha: .5);
 }
