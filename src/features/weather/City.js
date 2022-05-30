@@ -31,7 +31,7 @@ const City = ({ city }) => {
             </h1>
 
             <h2 className={`${classes.temp}`}>
-              {Math.round(city.main.temp)}
+              {city.main.temp.toFixed(0)}
               <sup>ºC</sup>
             </h2>
 

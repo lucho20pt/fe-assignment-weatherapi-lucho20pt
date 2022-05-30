@@ -40,7 +40,7 @@ const Forecast = ({ coords }) => {
             </div>
 
             <p className="mb-0">
-              <strong>{Math.round(day.temp.day)}</strong>
+              <strong>{day.temp.day.toFixed(0)}</strong>
               <sup>º</sup>
             </p>
           </li>
