@@ -1,8 +1,8 @@
 import { Fragment, useState } from 'react'
 import { useGetCityByNameMutation } from 'features/api/weatherApi'
 import { useDispatch } from 'react-redux'
-import { Form, Button } from 'react-bootstrap'
 import { weatherActions } from 'features/weather/weatherSlice'
+import { Form, Button } from 'react-bootstrap'
 
 const Search = () => {
   //
@@ -10,6 +10,7 @@ const Search = () => {
   const [search, setSearch] = useState('')
   const [getCityByName] = useGetCityByNameMutation()
   const dispatch = useDispatch()
+
   const [error, setError] = useState(false)
   const [success, setSuccess] = useState(false)
   const timeout = 1500
@@ -41,7 +42,7 @@ const Search = () => {
     try {
       // get response
       const cityResponse = await getCityByName(city).unwrap()
-      console.log('obj ->', cityResponse)
+      // console.log('obj ->', cityResponse)
       dispatch(weatherActions.addCity(cityResponse))
       onSuccessHandler()
     } catch (error) {
