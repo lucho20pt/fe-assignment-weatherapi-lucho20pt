@@ -1,8 +1,10 @@
 import { Fragment, useState } from 'react'
-import { useGetCityByNameMutation } from 'features/api/weatherApi'
 import { useDispatch } from 'react-redux'
+import { useGetCityByNameMutation } from 'features/api/weatherApi'
 import { weatherActions } from 'features/weather/weatherSlice'
+
 import { Form, Button } from 'react-bootstrap'
+import MyModal from 'components/ui/MyModal'
 
 const Search = () => {
   //
@@ -14,6 +16,8 @@ const Search = () => {
   const [error, setError] = useState(false)
   const [success, setSuccess] = useState(false)
   const timeout = 1500
+
+  const [modalShow, setModalShow] = useState(false)
 
   // show search
   const showSearchHandler = () => {
@@ -70,6 +74,7 @@ const Search = () => {
     }, timeout)
   }
 
+  // component RETURN
   return (
     <Fragment>
       <header className="search | my-3 d-flex justify-content-between | position-relative">
@@ -81,6 +86,19 @@ const Search = () => {
         >
           {!showSearch ? '+' : 'x'}
         </Button>
+
+        {!showSearch && (
+          <Button
+            className=""
+            size="lg"
+            variant="outline-primary"
+            onClick={() => setModalShow(true)}
+          >
+            ::
+          </Button>
+        )}
+
+        <MyModal show={modalShow} onHide={() => setModalShow(false)}></MyModal>
 
         {showSearch && (
           <Form className="w-75" onSubmit={submitHandler}>
