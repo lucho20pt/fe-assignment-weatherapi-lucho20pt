@@ -47,6 +47,7 @@ const City = ({ city }) => {
             className="mx-auto"
             size="lg"
             variant="outline-primary"
+            title="7 day weather forecast for current city"
             onClick={showForecastHandler}
           >
             Forecast for 7 days
