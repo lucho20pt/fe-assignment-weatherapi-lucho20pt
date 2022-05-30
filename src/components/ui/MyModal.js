@@ -10,12 +10,14 @@ const MyModal = (props) => {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Manage Citys
+          {props.title}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>{props.children}</Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
+        <Button variant="outline-primary" onClick={props.onHide}>
+          Close
+        </Button>
       </Modal.Footer>
     </Modal>
   )
