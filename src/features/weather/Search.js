@@ -5,6 +5,7 @@ import { weatherActions } from 'features/weather/weatherSlice'
 
 import { Form, Button } from 'react-bootstrap'
 import MyModal from 'components/ui/MyModal'
+import Favourites from 'features/weather/Favourites'
 
 const Search = () => {
   //
@@ -98,7 +99,9 @@ const Search = () => {
           </Button>
         )}
 
-        <MyModal show={modalShow} onHide={() => setModalShow(false)}></MyModal>
+        <MyModal show={modalShow} onHide={() => setModalShow(false)}>
+          <Favourites />
+        </MyModal>
 
         {showSearch && (
           <Form className="w-75" onSubmit={submitHandler}>
