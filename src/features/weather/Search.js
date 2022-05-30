@@ -79,6 +79,7 @@ const Search = () => {
   return (
     <Fragment>
       <header className="search | my-3 d-flex justify-content-between | position-relative">
+        {/* Toggle Search */}
         <Button
           className=""
           size="lg"
@@ -88,6 +89,7 @@ const Search = () => {
           {!showSearch ? '+' : 'x'}
         </Button>
 
+        {/* Toggle Favourite */}
         {!showSearch && (
           <Button
             className=""
@@ -99,10 +101,16 @@ const Search = () => {
           </Button>
         )}
 
-        <MyModal show={modalShow} onHide={() => setModalShow(false)}>
+        {/* Show Favourite */}
+        <MyModal
+          title="Manage Citys"
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+        >
           <Favourite />
         </MyModal>
 
+        {/* Search */}
         {showSearch && (
           <Form className="w-75" onSubmit={submitHandler}>
             <Form.Control
@@ -116,7 +124,8 @@ const Search = () => {
             />
           </Form>
         )}
-
+        
+        {/* Notification */}
         {error && (
           <div
             role="alert"
