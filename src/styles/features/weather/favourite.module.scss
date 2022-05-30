@@ -1,0 +1,8 @@
+@import "styles/custom.scss";
+
+.favourite{
+    border-radius: 5px;
+    background-color: rgba($color: $blue, $alpha: .2);
+    border: 1px solid $secondary;
+}
+
