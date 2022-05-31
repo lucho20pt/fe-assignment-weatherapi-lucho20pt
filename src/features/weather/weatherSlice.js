@@ -42,7 +42,7 @@ const weatherSlice = createSlice({
   initialState: initialWheaterState,
   reducers: {
     addCity(state, action) {
-      console.log('addCity')
+    //   console.log('addCity')
       const newCity = action.payload
       const existingCity = state.citys.find((city) => city.id === newCity.id)
       state.changed = true
@@ -51,9 +51,9 @@ const weatherSlice = createSlice({
       }
     },
     removeCity(state, action) {
-      console.log('removeCity')
+    //   console.log('removeCity')
       const id = action.payload
-      console.log(id)
+    //   console.log(id)
       const existingCity = state.citys.find((city) => city.id === id)
       if (existingCity) {
         state.citys = state.citys.filter((city) => city.id !== id)

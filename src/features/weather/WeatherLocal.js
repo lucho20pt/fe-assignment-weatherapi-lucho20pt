@@ -59,7 +59,7 @@ const WeatherLocal = () => {
     content = savedCitysList.map((city) => (
       <Fragment key={city.id}>
         <article
-          className={`${classes.weather} | p-2 mb-2 | position-relative`}
+          className={`${classes.weather} | p-2 mb-3 | position-relative`}
         >
           <span className={classes.currentLocation}>Current Location</span>
           <Row>
