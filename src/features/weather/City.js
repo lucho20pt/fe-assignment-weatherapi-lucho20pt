@@ -19,7 +19,7 @@ const City = ({ city }) => {
   // content RENDER
   return (
     <Fragment key={city.id}>
-      <article className={`${classes.weather} | p-2 mb-2 | position-relative`}>
+      <article className={`${classes.weather} | p-2 mb-3 | position-relative`}>
         <Row>
           <Col className="mx-auto text-center">
             <div className={`${classes.icon}`}>

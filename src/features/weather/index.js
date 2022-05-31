@@ -14,7 +14,7 @@ const Weather = () => {
   return (
     <Fragment>
       <section>
-        <Container style={{ maxWidth: '500px' }}>
+        <Container style={{ maxWidth: '550px' }}>
           <Search />
           <Slider>
             {citys.map((city) => (

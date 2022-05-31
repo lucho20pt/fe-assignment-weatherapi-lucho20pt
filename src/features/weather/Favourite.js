@@ -9,8 +9,8 @@ const Favourite = (props) => {
   const favourite = useSelector((state) => state.weather.citys)
   const dispatch = useDispatch()
 
-  const deleteCityHandler = (id) => { 
-    console.log(id);
+  const deleteCityHandler = (id) => {
+    // console.log(id)
     dispatch(weatherActions.removeCity(id))
   }
 
@@ -20,7 +20,8 @@ const Favourite = (props) => {
     content = <p>You have no Favourite Citys</p>
   } else {
     content = favourite.map((city) => (
-      <Row key={city.id}
+      <Row
+        key={city.id}
         className={`${classes.favourite} | align-items-center justify-content-between | py-2 px-3 mb-3`}
       >
         <Col xs={6} sm={7} className={classes.city}>
@@ -28,8 +29,11 @@ const Favourite = (props) => {
         </Col>
         <Col className={classes.temp}>{city.main.temp.toFixed(0)}º</Col>
         <Col className="text-end">
-          <Button size="sm" variant="outline-warning" title="Remove City"
-            onClick={()=> deleteCityHandler(city.id)}
+          <Button
+            size="sm"
+            variant="outline-warning"
+            title="Remove City"
+            onClick={() => deleteCityHandler(city.id)}
           >
             x
           </Button>
