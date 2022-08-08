@@ -1,0 +1,37 @@
+@import "styles/custom.scss";
+
+.weather{
+    background-color: rgba($color: $black, $alpha: .5);
+    color: $white;
+    border-radius: 5px;
+    border: 2px solid $primary;
+
+    .icon{        
+        color: $white;
+    }
+    
+    .name {
+        font-size: 1.8rem;
+    }
+    
+    .temp{        
+        font-size: 5rem;
+        line-height: 5rem;
+        sup{
+            font-size: 1.5rem;
+            line-height: 4rem;
+            vertical-align: top;
+        }        
+    }
+
+    .currentLocation{
+        position: absolute;
+        right: -38px;
+        top: 50%;
+        transform: rotate(-90deg);
+        color: $primary;
+        font-size: .7rem;
+    }
+    
+}
+

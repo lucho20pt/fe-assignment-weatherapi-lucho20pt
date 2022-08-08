@@ -1,3 +1,15 @@
+# Install Project
+npm i --save-exact
+
+# Run Project DEV
+npm run start
+
+# Run Project PROD
+npm run build
+serve -s build
+
+-------------------------------
+
 # xgeeks tech assignment
 
 In this repo you can find the tech challenge we use to evaluate our candidates as part of the interview process.
