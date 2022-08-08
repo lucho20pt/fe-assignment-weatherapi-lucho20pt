@@ -1,0 +1,15 @@
+.slider {
+  .carousel-indicators {
+    top: -10px;
+    bottom: auto;
+    
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next{
+    width: 20%;
+    top: 180px;
+    bottom: auto;
+  }
+  
+}
