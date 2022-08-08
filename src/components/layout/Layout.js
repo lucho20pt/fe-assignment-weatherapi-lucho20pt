@@ -1,8 +1,7 @@
 import { Fragment } from 'react'
 import { Container } from 'react-bootstrap'
 import Header from 'components/layout/Header'
-import Footer from 'components/layout/Footer'
-// import Slider from '@/components/layout/Slider'
+// import Footer from 'components/layout/Footer'
 
 const Layout = (props) => {
   return (
@@ -10,7 +9,7 @@ const Layout = (props) => {
       <Container fluid>
         <Header />
         <main>{props.children}</main>
-        <Footer />
+        {/* <Footer /> */}
       </Container>
     </Fragment>
   )

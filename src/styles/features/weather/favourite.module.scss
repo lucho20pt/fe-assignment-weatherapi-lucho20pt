@@ -1,0 +1,22 @@
+@import "styles/custom.scss";
+
+.favourite{
+    border-radius: 5px;
+    background-color: rgba($color: $blue, $alpha: .2);
+    border: 1px solid $secondary;
+
+    .city{
+        font-size: 1rem;
+        @include media-breakpoint-down(sm) {
+            font-size: .8rem;
+        }
+    }
+    .temp{
+        font-size: 1.2rem;
+        @include media-breakpoint-down(sm) {
+            font-size: 1rem;
+        }
+    }
+    
+}
+

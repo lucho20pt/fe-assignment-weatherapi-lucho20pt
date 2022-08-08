@@ -57,18 +57,23 @@ const WeatherLocal = () => {
     content = <Loading />
   } else if (isSuccess) {
     content = savedCitysList.map((city) => (
-      <Fragment key={city.dt}>
-        <article className={`${classes.weather} p-2 mb-2`}>
+      <Fragment key={city.id}>
+        <article
+          className={`${classes.weather} | p-2 mb-3 | position-relative`}
+        >
+          <span className={classes.currentLocation}>Current Location</span>
           <Row>
             <Col className="mx-auto text-center">
               <div className={`${classes.icon}`}>
                 <i className={`owf owf-${city.weather[0].id} owf-5x`}></i>
               </div>
 
-              <h1 className={`${classes.name}`}>{city.name}</h1>
+              <h1 className={`${classes.name}`}>
+                {city.name} / {city.sys.country}
+              </h1>
 
               <h2 className={`${classes.temp}`}>
-                {Math.round(city.main.temp)}
+                {city.main.temp.toFixed(0)}
                 <sup>ºC</sup>
               </h2>
 
@@ -84,6 +89,7 @@ const WeatherLocal = () => {
               className="mx-auto"
               size="lg"
               variant="outline-primary"
+              title="7 day weather forecast for current location"
               onClick={showForecastHandler}
             >
               Forecast for 7 days
